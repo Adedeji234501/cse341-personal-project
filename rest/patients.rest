@@ -1,0 +1,38 @@
+## LOCALHOST
+### GET all patients
+GET http://localhost:3000/patient
+
+### GET patients by ID
+GET http://localhost:3000/patient/67a19d5c123b7d3952a7b604
+
+### CREATE patient
+POST http://localhost:3000/patient HTTP/1.1
+Content-Type: application/json
+
+{
+    "patient_id": "P004",
+    "name": "Jerry Adams",
+    "age": 22,
+    "gender": "Male",
+    "diagnosis": "Migraine",
+    "medications": "Sumatriptan",
+    "last_visit": "2025-02-05",
+    "doctor_notes": "Recommended stress management techniques and hydration"
+}
+### PUT patient
+PUT http://localhost:3000/patient/67a19d5c123b7d3952a7b604 HTTP/1.1
+Content-Type: application/json 
+
+{
+    "patient_id": "P002",
+    "name": "Emeka Okafor",
+    "age": "40",
+    "gender": "Male",
+    "diagnosis": "Arthritis",
+    "medications": "Ibuprofen, Glucosamine",
+    "last_visit": "29-01-2025",
+    "doctor_notes": "Patient reports mild joint pain, prescribed physiotherapy"
+}
+### DELETE patient
+DELETE http://localhost:3000/patient/67a52f2d6a8d539f3121e1ad HTTP/1.1
+Content-Type: application/json

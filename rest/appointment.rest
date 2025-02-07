@@ -1,0 +1,38 @@
+## LOCALHOST
+### GET all appointments
+GET http://localhost:3000/appointment
+
+### GET appointments by ID
+GET http://localhost:3000/appointment/67a1a55a123b7d3952a7b608
+
+### CREATE appointment
+POST http://localhost:3000/appointment HTTP/1.1
+Content-Type: application/json
+
+{
+    "appointment_id": "A004",
+    "patient_id": "P004",
+    "doctor_name": "Dr. Fatima Bello",
+    "department": "Neurology",
+    "appointment_date": "2025-02-28",
+    "appointment_time": "3:45 PM",
+    "status": "Completed",
+    "notes": "Prescribed medications for migraine"
+}
+### PUT appointment
+PUT http://localhost:3000/appointment/67a1a3d9123b7d3952a7b607 HTTP/1.1
+Content-Type: application/json 
+
+{
+    "appointment_id": "A002",
+    "patient_id": "P002",
+    "doctor_name": "Dr. Patricia Umeh",
+    "department": "Rheumatology",
+    "appointment_date": "10-02-2025",
+    "appointment_time": "9:30AM",
+    "status": "Completed",
+    "notes": "Prescribed physiotherapy for arthritis"
+}
+### DELETE appointment
+DELETE http://localhost:3000/appointment/67a1c1ee480b2744c276273a HTTP/1.1
+Content-Type: application/json
