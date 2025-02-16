@@ -26,34 +26,30 @@ app
   })
   .use(cors({methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH']})) // Allow the methods
   .use(cors({origin: '*'})) // Allow the origin
-  .use('/', require('./routes/index')); // Use the routes
+
+app.use('/', require('./routes/index.js')); // Use the routes
+
+process.on('uncaughtException', (err) => {
+  console.log(process.stderr.fd, `Caught exception: ${err} \nException origin: ${origin}`);
+});
   
   passport.use(new GitHubStrategy({
     clientID: process.env.GITHUB_CLIENT_ID,
     clientSecret: process.env.GITHUB_CLIENT_SECRET,
     callbackURL: process.env.CALLBACK_URL
   },
-  function (_accessToken, _refreshToken, profile, done) { 
+  function (accessToken, refreshToken, profile, done) { 
     //User.findOrCreate({ githubId: profile.id }, function (err, user) {
     return done(null, profile)
     //});
   }
 ));
-passport.serializeUser((user, done) => {
+passport.serializeUser(function(user, done) {
   done(null, user);
 });
-passport.deserializeUser((user, done) => { 
+passport.deserializeUser(function(user, done) { 
   done(null, user);
 });
-
-app.get('/', (req, res) => { res.send(req.session.user !== undefined ? `Logged in as ${req.session.user.displayName}` :"Logged Out")});
-
-app.get('/github/callback', passport.authenticate('github', { 
-  failureRedirect: '/api-docs', session: false }),
-  (req, res) => {
-    req.session.user = req.user;
-    res.redirect('/');
-  });
     
 mongodb.initDb((err) => {
     if(err) {

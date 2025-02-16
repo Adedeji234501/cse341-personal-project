@@ -21,7 +21,7 @@
         }
       }
     },
-    "/login": {
+    "/auth/github": {
       "get": {
         "description": "",
         "responses": {
@@ -32,6 +32,16 @@
       }
     },
     "/logout": {
+      "get": {
+        "description": "",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/auth/github/callback": {
       "get": {
         "description": "",
         "responses": {

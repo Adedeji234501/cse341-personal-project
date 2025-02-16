@@ -6,12 +6,12 @@ const doc = {
     description:
       "An API to manage medical appointments, patients",
   },
-  host: 'localhost:3000',
-  schemes: ['http', 'https']
+  host: 'cse341-personal-project-l5c5.onrender.com',
+  schemes: ['https']
 };
 
 const outputFile = './swagger.json';
-const endpointFiles = ['./routes/index.js'];
+const routes = ['./routes/index.js'];
 
 // THi will generate swagger.json
-swaggerAutogen(outputFile, endpointFiles, doc);
+swaggerAutogen(outputFile, routes, doc);
