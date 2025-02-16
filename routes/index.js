@@ -9,13 +9,13 @@ const swaggerDocument = require('../swagger.json');
 router.get('/',(req, res) => {
     if (req.session.user) {
         res.send('<p> Hello! Welcome to Medical Records API</p>' + 
-            '<br><a href="/api-docs">API Documentation</a>' + 
+            '<br> <a href="/api-docs">API Documentation</a>' + 
             '<br> Logged in as: ' + req.session.user.name + 
             '<br><a href="/logout">Logout</a>');
     } else {
         res.send('<p> Hello! Welcome to Medical Records API</p>' + 
-            '<br><a href="/api-docs">API Documentation</a>' + 
-            '<br><a href="/auth/github` ">Login with GitHub</a>');
+            '<br> <a href="/api-docs">API Documentation</a>' + 
+            '<br> <a href="/auth/github">Login with GitHub</a>');
     }
 });
 
